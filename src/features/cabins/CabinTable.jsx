@@ -5,12 +5,14 @@ import Spinner from '../../ui/Spinner';
 import Table from '../../ui/Table';
 import CabinRow from './CabinRow';
 import Menus from '../../ui/Menus';
+import Empty from '../../ui/Empty';
 
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
   const [searchPrams] = useSearchParams();
 
   if (isLoading) return <Spinner />;
+  if (!cabins.length) return <Empty resourceName="cabins" />;
 
   // 1) FILTER
   const filterValue = searchPrams.get('discount') || 'all';
