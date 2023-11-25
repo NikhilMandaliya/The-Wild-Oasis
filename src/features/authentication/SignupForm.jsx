@@ -6,6 +6,8 @@ import Form from '../../ui/Form';
 import FormRow from '../../ui/FormRow';
 import Input from '../../ui/Input';
 
+// Email regex: /\S+@\S+\.\S+/
+
 function SignupForm() {
   const { signup, isLoading } = useSignup();
   const { register, formState, getValues, handleSubmit, reset } = useForm();
@@ -53,7 +55,7 @@ function SignupForm() {
             required: 'This field is required',
             minLength: {
               value: 8,
-              message: 'Password needs a minimun of 8 characters',
+              message: 'Password needs a minimum of 8 characters',
             },
           })}
         />
@@ -74,7 +76,12 @@ function SignupForm() {
 
       <FormRow>
         {/* type is an HTML attribute! */}
-        <Button variation="secondary" type="reset" disabled={isLoading}>
+        <Button
+          variation="secondary"
+          type="reset"
+          disabled={isLoading}
+          onClick={reset}
+        >
           Cancel
         </Button>
         <Button disabled={isLoading}>Create new user</Button>
