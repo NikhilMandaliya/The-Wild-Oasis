@@ -221,6 +221,25 @@ FOR DARK MODE
 --image-grayscale: 10%;
 --image-opacity: 90%;
 */
+
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: var(--color-blue-100); /* Color of the scrollbar handle */
+    border-radius: 6px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: var(--color-grey-0); /* Color of the scrollbar track */
+  }
+
+  /* For Firefox */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-blue-200) var(--color-grey-0); /* Color of the scrollbar handle and track */
+  }
 `;
 
 export default GlobalStyles;
