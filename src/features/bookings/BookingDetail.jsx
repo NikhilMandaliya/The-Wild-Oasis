@@ -12,6 +12,7 @@ import ButtonText from '../../ui/ButtonText';
 import Spinner from '../../ui/Spinner';
 import Modal from '../../ui/Modal';
 import ConfirmDelete from '../../ui/ConfirmDelete';
+import Empty from '../../ui/Empty';
 
 import { useMoveBack } from '../../hooks/useMoveBack';
 import { useDeleteBooking } from './useDeleteBooking';
@@ -33,6 +34,8 @@ function BookingDetail() {
   const moveBack = useMoveBack();
 
   if (isLoading) return <Spinner />;
+
+  if (!booking) return <Empty resourceName="Booking" />;
 
   const { status, id: bookingId } = booking;
 
